@@ -1,0 +1,95 @@
+/* Content Styling */
+#contentt {
+    padding: 2rem;
+    background-color: #FFDAB9;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin: 2rem 5%;
+}
+
+/* Styling for the title */
+.page-title {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #151111;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Table Header */
+thead th {
+    background-color: #151111;
+    color: #fff;
+    text-align: left;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Table Body */
+tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1rem;
+    color: #333;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+}
+
+/* Leaderboard Button */
+/* .leaderboard-btn {
+    background-color: black;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.leaderboard-btn:hover {
+    background-color: #6D7A8A;
+    border : 3px solid black
+} */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #content {
+        margin: 2rem 2%;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    thead th, tbody td {
+        padding: 0.8rem;
+    }
+
+    .leaderboard-btn {
+        padding: 0.4rem 0.8rem;
+    }
+}

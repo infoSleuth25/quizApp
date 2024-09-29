@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademiaQuiz</title>
+    <link rel="stylesheet" href="/css/startQuiz.css">
+    <style>
+        /* Base styles for the entire page */
+        body {
+            background-color: #6D7A8A;
+            font-family: Arial, sans-serif;
+            color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Styling for the main quiz container */
+        .wholequiz {
+            width: 70%;
+            margin: auto;
+            padding: 20px;
+            background-color: #FFDAB9;
+            border: 3px solid black;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Styling for the quiz title */
+        h1 {
+            font-size: 2.5em;
+        
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the quiz description */
+        p {
+            font-size: 1.2em;
+    
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the timer display */
+        #time {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #E74C3C;
+        }
+
+        /* Line separator style */
+        hr {
+            border: none;
+            height: 2px;
+            background-color: #2C3E50;
+            margin: 20px 0; /* Add margin above and below the line */
+        }
+
+        /* Styling for each question block */
+        fieldset {
+            border: none;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        /* Styling for the question text */
+        legend {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        /* Label and input radio button styling */
+        label {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Submit button styling */
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #6D7A8A;
+            border: 3px solid black;
+        }
+
+        /* Responsive layout for smaller screens */
+        @media (max-width: 768px) {
+            .wholequiz {
+                width: 90%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            p, legend, label {
+                font-size: 1em;
+            }
+
+            button[type="submit"] {
+                font-size: 1em;
+            }
+        }
+    </style>
+    <script>
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0;
+                    document.getElementById('quiz-form').submit();
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let thirtyMinutes = 60 * 30,
+                display = document.querySelector('#time');
+            startTimer(thirtyMinutes, display);
+        };
+    </script>
+</head>
+<body>
+    <div class="wholequiz">
+        <h1><%= quiz.title %></h1>
+        <p><%= quiz.description %></p>
+        <div>Time left: <span id="time">30:00</span></div>
+
+        <!-- Horizontal line separator -->
+        <hr>
+
+        <form id="quiz-form" action="/student/<%=username%>/quiz/<%= quiz._id %>/submit" method="POST">
+            <% quiz.questions.forEach(function(question, index) { %>
+                <fieldset>
+                    <legend><%= index + 1 %>. <%= question.questionText %></legend>
+                    <% question.options.forEach(function(option) { %>
+                        <label>
+                            <input type="radio" name="<%= question._id %>" value="<%= option.optionText %>">
+                            <%= option.optionText %>
+                        </label>
+                    <% }); %>
+                </fieldset>
+            <% }); %>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

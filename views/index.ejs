@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AcademiaQuiz</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <main>
+      <div class="box">
+        <div class="inner-box">
+          <div class="forms-wrap">
+            <form action="/login" method="post" autocomplete="off" class="sign-in-form">
+              <div class="logo">
+                <img src="/images/quizLogo.png" alt="easyclass" />
+                <h4>AcademiaQuiz</h4>
+              </div>
+
+              <div class="heading">
+                <h2>Welcome Back</h2>
+                <h6>Not registred yet?</h6>
+                <a href="#" class="toggle">Sign up</a>
+              </div>
+
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    name="username"
+                    type="text"
+    
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Email Address/ Staff Number</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    name = "password"
+                    type="password"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Password</label>
+                </div>
+
+                <input type="submit" value="Sign In" class="sign-btn" />
+
+              </div>
+            </form>
+
+            <form action="index.html" autocomplete="off" class="sign-up-form">
+                <div class="logo">
+                    <img src="/images/quizLogo.png" alt="easyclass" />
+                    <h4>AcademiaQuiz</h4>
+                  </div>
+
+              <div style="margin-top: -3rem;" class="heading">
+                <h2>Get Started</h2>
+                <h6>Already have an account?</h6>
+                <a href="#" class="toggle">Sign in</a>
+              </div>
+
+              <div style="margin-top: -5rem;" class="actual-form">
+              <a href="/studentForm">
+                <input value="Sign Up as Student" class="sign-btn" style="text-align: center;"/>
+              </a>
+              <a href="/teacherForm">
+                <input value="Sign Up as Teacher" class="sign-btn" style="text-align: center;"/>
+              </a>
+              </div>
+            </form>
+          </div>
+
+          <div class="carousel">
+            <div class="images-wrapper">
+                <img src="/images/teacher.png" class="image img-1 show" alt="Teacher Image 1" />
+                <img src="/images/teacher2.png" class="image img-2" alt="Teacher Image 2" />
+            </div>
+    
+            <div class="text-slider">
+                <div class="text-wrap">
+                    <div class="text-group">
+                        <h2>Explore, Learn & Excel</h2>
+                        <h2>Achieve More with Every Quiz</h2>
+                    </div>
+                </div>
+    
+                <div class="bullets">
+                    <span class="active" data-value="1"></span>
+                    <span data-value="2"></span>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/index.js"></script>
+  </body>
+</html>

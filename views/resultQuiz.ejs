@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Base styles for the entire page */
+        body {
+            background-color: #6D7A8A;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Styling for the result container */
+        .result-container {
+            width: 70%;
+            padding: 20px;
+            background-color: #FFDAB9;
+            border: 3px solid black;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Styling for the main heading */
+        h1 {
+            font-size: 2.5em;
+            color: #2C3E50;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the score paragraph */
+        p {
+            font-size: 1.5em;
+            color: #34495E;
+            margin-bottom: 20px;
+        }
+
+        /* Link styling */
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #6D7A8A;
+            border : 3px solid black
+        }
+
+        /* Responsive layout for smaller screens */
+        @media (max-width: 768px) {
+            .result-container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1.2em;
+            }
+
+            a {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Quiz Result</h1>
+        <p>You scored <%= score %> out of <%= total %></p>
+        <a href="/student/<%= username %>/pendingQuiz">Back to Pending Quizzes</a>
+    </div>
+</body>
+</html>

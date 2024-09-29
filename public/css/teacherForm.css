@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Poppins", sans-serif;
+  background-color: #6D7A8A;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #6D7A8A;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1020px;
+  height: 640px;
+  background-color: #FFDAB9;
+  border-radius: 3.3rem;
+  box-shadow: 0 60px 40px -30px black;
+  display: flex;
+}
+
+.image-section {
+    flex: 6; /* 70% of the space */
+    background: url('/images/studnet.png') no-repeat center center;
+    background-size: cover;
+    border-radius: inherit; /* Inherit the border-radius from the parent */
+    overflow: hidden; 
+    border-radius: 3.3rem 0 0 3.3rem;
+  }
+  
+  .form-section {
+    flex: 3; /* 30% of the space */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin: 5px 0;
+  }
+  
+  input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+    color : white;
+    font-weight: bolder;
+  }
+  
+  button {
+    display: inline-block;
+    width: 100%;
+    height: 43px;
+    background-color: #151111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    transition: 0.3s;
+    margin-top: 5%;
+  }
+  
+  button:hover {
+    background-color: #6D7A8A;
+  }
+  .image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+  }
+
+
+
+  h2 {
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: #151111;
+    text-align: center;
+  }
+
+
+
+
+  

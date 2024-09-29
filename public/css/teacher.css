@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #6D7A8A;
+}
+
+h1{
+  color: #151111;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #FFDAB9;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.btns{
+    padding: 0.5rem 5rem;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0.2rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    text-decoration: none;
+}
+
+.textual{
+    padding : 15px 150px;
+    border-radius: 1.3rem;
+    background-color: #FFDAB9;
+    border : 1px solid #FFDAB9;
+    font-weight: bold;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.textual:hover{
+    background-color: #fdbc83;
+}
+
+
+
+.dashboard-menu {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.dashele {
+    flex: 1;
+    margin: 0 0.5rem;
+}
+
+#content {
+    padding: 1rem;
+    flex-grow: 1;
+    background-color: #FFDAB9;
+    margin-left : 5%;
+    margin-right : 5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 2rem;
+    box-shadow: 15px 15px 15px 15px black;
+    margin-bottom: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+button {
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#questions-container {
+    margin-top: 1rem;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 2rem;
+}
+
+.question {
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 1.3rem;
+    background-color: #f9f9f9;
+}
+
+.options {
+    margin-top: 0.5rem;
+}
+
+.options input[type="text"] {
+    width: 70%;
+    margin-right: 0.5rem;
+    display: inline-block;
+}
+
+.options input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+button[type="button"] {
+    background-color: #6c757d;
+}
+
+button[type="button"]:hover {
+    background-color: #5a6268;
+}
+
+button[type="submit"] {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button[type="submit"]:hover {
+    background-color: #6D7A8A;
+}
+
+
+#btn2{
+    width: 13%;
+    text-align: center;
+    margin-top: 25px;
+}
+
+#sign-btn {
+    display: inline-block;
+    width: 15%;
+    height: 43px;
+    background-color: #151111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    transition: 0.3s;
+    margin-top: 30px;
+  }
+  
+  
+  #sign-btn:hover {
+    background-color: #6D7A8A;
+  }
+
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 40px;
+    margin-right: 0.3rem;
+  }
+  
+  .logo h4 {
+    font-size: 1.1rem;
+    margin-top: -9px;
+    letter-spacing: -0.5px;
+    color: #151111;
+  }
+
+  
+ 
+
+  .nav-links {
+    display: flex;
+    gap: 1rem; /* Space between links */
+}
+
+.nav-links a {
+    font-size: 1.1rem;
+    margin-top: -9px;
+    /* letter-spacing: -0.5px; */
+    color: #151111;
+    text-decoration: none;
+    padding: 0.5rem 3rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color : #6D7A8A;
+}
+
+.logout {
+    margin-left: auto; /* Pushes the Logout link to the far right */
+}

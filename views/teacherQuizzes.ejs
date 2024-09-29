@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Quizzes</title>
+    <link rel="stylesheet" href="/css/teacher.css">
+    <link rel="stylesheet" href="/css/teacher2.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <div class="logo">
+                <img src="/images/quizLogo.png" alt="easyclass" />
+                <h4>AcademiaQuiz</h4>
+            </div>
+            <nav class="nav-links">
+                <a href="/teacher/<%= username %>/createQuiz">Create Quiz</a>
+                <a href="/teacher/<%= username %>/pastQuizzes">Previous Quiz</a>
+                <a class="logout" href="/">Logout</a>
+            </nav>
+        </header>
+        <main>
+            <div class="dashboard-menu"></div>
+            
+            <div id="contentt">
+                <h1 class="page-title">Past Quizzes</h1>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Quiz Title</th>
+                                <th>Description</th>
+                                <th>Leaderboard</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% quizzes.forEach(quiz => { %>
+                            <tr>
+                                <td><%= quiz.title %></td>
+                                <td><%= quiz.description %></td>
+                                <td>
+                                    <form action="/teacher/<%= username %>/quiz/<%= quiz._id %>/leaderboard" method="GET">
+                                        <button type="submit" class="leaderboard-btn">Show Leaderboard</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+    <script src="/scripts.js"></script>
+</body>
+</html>

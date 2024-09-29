@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademiaQuiz</title>
+    <link rel="stylesheet" href="/css/teacher.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <div class="logo">
+                <img src="/images/quizLogo.png" alt="easyclass" />
+                <h4>AcademiaQuiz</h4>
+            </div>
+            <nav class="nav-links">
+                <a href="/teacher/<%= username %>/createQuiz">Create Quiz</a>
+                <a href="/teacher/<%= username %>/pastQuizzes">Previous Quiz</a>
+                <a class="logout" href="/">Logout</a>
+            </nav>
+        </header>
+        <main>
+            <div class="dashboard-menu"></div>
+            
+            <div id="content">
+                <form action="/create-quiz" method="post">
+                    <div style="margin-left: 5%;margin-right: 5%;">
+                        <label for="title">Quiz Title:</label>
+                        <input type="text" id="title" name="title" required><br>
+                        
+                        <div style="margin-top: 10px;">
+                            <label for="description">Description:</label>
+                            <textarea id="description" name="description"></textarea><br>
+                        </div>
+                    </div>
+            
+                    <div id="questions-container">
+                        <h2>Questions</h2>
+                        <!-- Initial Question Template -->
+                        <div class="question" data-index="0">
+                            <label for="questionText">Question Text:</label>
+                            <input type="text" name="questions[0][questionText]" required><br>
+            
+                            <label for="options">Options:</label>
+                            <div class="options">
+                                <div>
+                                    <input type="text" name="questions[0][options][0][optionText]" placeholder="Option text" required>
+                                    <input type="checkbox" name="questions[0][options][0][isCorrect]"> Correct<br>
+                                </div>
+                            </div>
+                            <button type="button" onclick="addOption(this)">Add Option</button>
+                            <button type="button" onclick="removeQuestion(this)">Remove Question</button>
+                        </div>
+                    </div>
+            
+                    <div style="text-align: center;">
+                        <button id="btn2" type="button" onclick="addQuestion()">Add Question</button><br>
+                    </div>
+            
+                    <input type="hidden" id="questions" name="questions">
+                    <div style="text-align: center;">
+                        <button id="sign-btn" type="submit">Create Quiz</button>
+                    </div>
+                </form>
+            
+                <script>
+                    function addOption(button) {
+                        const questionDiv = button.closest('.question');
+                        const optionsContainer = questionDiv.querySelector('.options');
+                        const questionIndex = questionDiv.dataset.index;
+                        const optionIndex = optionsContainer.children.length;
+                        
+                        const newOptionDiv = document.createElement('div');
+                        newOptionDiv.innerHTML = `
+                            <input type="text" name="questions[${questionIndex}][options][${optionIndex}][optionText]" placeholder="Option text" required>
+                            <input type="checkbox" name="questions[${questionIndex}][options][${optionIndex}][isCorrect]"> Correct<br>
+                        `;
+                        optionsContainer.appendChild(newOptionDiv);
+                    }
+            
+                    function removeQuestion(button) {
+                        button.closest('.question').remove();
+                    }
+            
+                    function addQuestion() {
+                        const questionsContainer = document.getElementById('questions-container');
+                        const questionIndex = questionsContainer.children.length;
+                        
+                        const newQuestionDiv = document.createElement('div');
+                        newQuestionDiv.classList.add('question');
+                        newQuestionDiv.dataset.index = questionIndex;
+                        newQuestionDiv.innerHTML = `
+                            <label for="questionText">Question Text:</label>
+                            <input type="text" name="questions[${questionIndex}][questionText]" required><br>
+            
+                            <label for="options">Options:</label>
+                            <div class="options">
+                                <div>
+                                    <input type="text" name="questions[${questionIndex}][options][0][optionText]" placeholder="Option text" required>
+                                    <input type="checkbox" name="questions[${questionIndex}][options][0][isCorrect]"> Correct<br>
+                                </div>
+                            </div>
+                            <button type="button" onclick="addOption(this)">Add Option</button>
+                            <button type="button" onclick="removeQuestion(this)">Remove Question</button>
+                        `;
+                        questionsContainer.appendChild(newQuestionDiv);
+                    }
+                </script>
+            </div>
+        </main>
+    </div>
+    <script src="/scripts.js"></script>
+</body>
+</html>
+

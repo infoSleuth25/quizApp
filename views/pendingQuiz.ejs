@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademiaQuiz</title>
+    <link rel="stylesheet" href="/css/teacher.css">
+    <link rel="stylesheet" href="/css/pendingQuiz.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <div class="logo">
+                <img src="/images/quizLogo.png" alt="AcademiaQuiz" />
+                <h4>AcademiaQuiz</h4>
+            </div>
+            <nav class="nav-links">
+                <a href="/student/<%= username %>/pendingQuiz">Pending Quiz</a>
+                <a href="/student/<%= username %>/pastQuiz">Past Quiz</a>
+                <a class="logout" href="/">Logout</a>
+            </nav>
+        </header>
+        <main id="content">
+            <h1>Pending Quizzes</h1>
+            <ul class="no-bullets">
+                <% quizzes.forEach(function(quiz) { %>
+                    <div class="quizinfo">
+                        <li class="listitem">
+                            <h2><%= quiz.title %></h2>
+                            <p><%= quiz.description %></p>
+                            <div class="btnn">
+                                <a href="/student/<%= username %>/quiz/<%= quiz._id %>/start">
+                                    <span class="givetest">Give Test</span>
+                                </a>
+                            </div>
+                        </li>
+                    </div>
+                <% }); %>
+            </ul>
+        </main>
+    </div>
+    <script src="/scripts.js"></script>
+</body>
+</html>
